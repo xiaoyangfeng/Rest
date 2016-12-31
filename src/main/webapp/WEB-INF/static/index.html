@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="carApp">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="/CarController.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-HTML
+<body ng-controller="carCtrl">
+<div class="panel panel-default row">
+    <div class="col-xs-8 col-xs-offset-2" center>
+        <div class="well" ng-repeat="car in data.cars">
+
+                <span>{{car.ID}}</span>
+                <input ng-model="car.brand" required/>
+                <input ng-model="car.price"  required/>
+                <button ng-click="addCar(car)" class="btn btn-info">Add</button>
+                <button ng-click="deleteCar(car.ID)" class="btn btn-danger">Delete</button>
+                <button ng-click="updateCar(car)" class="btn btn-warning">Update</button>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
